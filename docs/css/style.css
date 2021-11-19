@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #006cff;
+}
+
+#background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+#background > * {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: bottom left;
+  background-attachment: fixed;
+}
+
+#background > .background-1 {
+  background: url("../img/bgr1.png") left 100% repeat-x;
+}
+
+#background > .background-2 {
+  background: url("../img/bgr2.png") left 100% repeat-x;
+}
+
+#background > .background-3 {
+  background: url("../img/bgr3.png") left 100% repeat-x;
+}
+
+#background > .night {
+  opacity: 0;
+  background: #546162;
+  -webkit-transition: opacity;
+  -o-transition: opacity;
+  transition: opacity;
+}
+
+.night #background > .night {
+  opacity: 0.5;
+}
+
+.snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.section-trees {
+  position: relative;
+  width: 100%;
+  z-index: 100000;
+}
