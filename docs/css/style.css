@@ -7,6 +7,8 @@
 
 body {
   background-color: #006cff;
+  overflow-x: hidden;
+  height: 100vh;
 }
 
 #background {
@@ -23,31 +25,18 @@ body {
   width: 100%;
   height: 100%;
   background-position: bottom left;
-  background-attachment: fixed;
 }
 
 #background > .background-1 {
-  background: url("../img/bgr1.png") left 100% repeat-x;
+  background: url("../img/bgr1.png") left 120% repeat-x;
 }
 
 #background > .background-2 {
-  background: url("../img/bgr2.png") left 100% repeat-x;
+  background: url("../img/bgr2.png") left 120% repeat-x;
 }
 
 #background > .background-3 {
-  background: url("../img/bgr3.png") left 100% repeat-x;
-}
-
-#background > .night {
-  opacity: 0;
-  background: #546162;
-  -webkit-transition: opacity;
-  -o-transition: opacity;
-  transition: opacity;
-}
-
-.night #background > .night {
-  opacity: 0.5;
+  background: url("../img/bgr3.png") left 120% repeat-x;
 }
 
 .snow {
@@ -56,8 +45,33 @@ body {
   left: 0;
 }
 
-.section-trees {
+.scene {
   position: relative;
   width: 100%;
-  z-index: 100000;
+  height: 100%;
+}
+
+#tree-1,
+#tree-2,
+#tree-3 {
+  position: absolute;
+  z-index: 100;
+}
+
+#tree-1 {
+  left: 4%;
+  bottom: 0;
+}
+
+#tree-2 {
+  right: 4%;
+  bottom: 0;
+}
+
+#tree-3 {
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%);
+      -ms-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
 }
