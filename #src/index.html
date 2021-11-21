@@ -4,30 +4,65 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Montserrat:wght@100;300;400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="./css/style.css" />
 		<title>Document</title>
 	</head>
 	<body>
-		<div id="background">
-			<div class="background-1"></div>
-			<div class="background-2"></div>
-			<div class="background-3"></div>
-			<canvas id="canvas" class="snow"></canvas>
-		</div>
-		<div class="scene">
-			<section id="scene-1">
-				<figure id="tree-1" data-visible="">
-					<img src="./img/tree1.png" />
-				</figure>
-				<figure id="tree-2" data-visible="">
-					<img src="./img/tree2.png" />
-				</figure>
-				<figure id="tree-3" data-visible="">
-					<img src="./img/tree3.png" />
-				</figure>
-			</section>
-		</div>
+		<main>
+			<div class="first-block">
+				<div id="background">
+					<div class="background-1"></div>
+					<div class="background-2"></div>
+					<div class="background-3"></div>
+					<canvas id="canvas" class="snow" width="768" height="860"></canvas>
+					<section id="scene-1">
+						<figure id="tree-1" data-visible="">
+							<img src="./img/tree3.png" />
+						</figure>
+						<figure id="tree-2" data-visible="">
+							<img src="./img/tree4.png" />
+						</figure>
+						<figure id="tree-3" data-visible="">
+							<img src="./img/tree1.png" />
+						</figure>
+						<figure id="tree-4" data-visible="">
+							<img src="./img/tree2.png" />
+						</figure>
+						<figure id="tree-5" data-visible="">
+							<img src="./img/tree4.png" />
+						</figure>
+						<figure id="tree-6" data-visible="">
+							<img src="./img/tree3.png" />
+						</figure>
+					</section>
+				</div>
+				<div class="content">
+					<div class="content__body">
+						<div class="content__logo">
+							<img class="logo-img" src="./img/logo_white.svg" alt="" />
+							<img class="santa-hat-img" src="./img/santa_Hat.svg" alt="" />
+						</div>
+						<div class="content__title pt-3">Admiral Studios вітає вас з Новим Роком!</div>
+					</div>
+					<div class="content__wheel">
+						<div class="content__deal-wheel">
+							<ul class="content__spinner"></ul>
+							<button class="cap btn-spin">SPIN</button>
+							<div class="ticker"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
 
+		<script src="./js/snow.js"></script>
 		<script src="./js/script.js"></script>
 	</body>
 </html>
