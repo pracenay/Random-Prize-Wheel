@@ -31,7 +31,6 @@ function snow() {
 		for (let i = 0; i < amount; i++) {
 			temp = new point();
 		}
-		console.log(points);
 	};
 	//Point drawer
 	const draw = (obj) => {
@@ -111,16 +110,13 @@ const prizes = [
 		color: '#F2A65A',
 		probability: 0.05,
 	},
-	{
-		text: 'Free hosting 4 months',
-		color: '#E63946',
-		probability: 0.05,
-	},
 ];
 
 const wheel = document.querySelector('.content__deal-wheel');
+const modalWin = document.querySelector('.modal-win');
+
 const spinner = wheel.querySelector('.content__spinner');
-const trigger = wheel.querySelector('.btn-spin');
+const trigger = wheel.querySelector('.cap');
 const ticker = wheel.querySelector('.ticker');
 
 const prizeSlice = 360 / prizes.length;
@@ -213,9 +209,17 @@ const runTickerAnimation = () => {
 	tickerAnim = requestAnimationFrame(runTickerAnimation);
 };
 
+const winNotification = (text) => {
+	let modal = document.createElement('div');
+	modal.setAttribute('class', 'modal-win');
+	modal.innerHTML += `You win ${text}`;
+	document.body.append(modal);
+};
+
 const selectPrize = () => {
 	const selected = Math.floor((rotation - 90) / prizeSlice);
 	prizeNodes[selected].classList.add(selectedClass);
+	winNotification(prizeNodes[selected].innerText);
 };
 
 trigger.addEventListener('click', () => {
@@ -237,8 +241,33 @@ spinner.addEventListener('transitionend', () => {
 	selectPrize();
 	wheel.classList.remove(spinClass);
 	spinner.style.setProperty('--rotate', rotation);
+	confettiAnimation();
 });
 
 setupWheel();
 
-/* Animation */
+/* CONFETTI */
+let duration = 10000;
+let end = Date.now() + duration;
+let colors = ['#fff', '#000', '#fa2020'];
+function confettiAnimation() {
+	confetti({
+		particleCount: 2,
+		angle: 60,
+		spread: 55,
+		origin: { x: 0 },
+		colors: colors,
+	});
+	confetti({
+		particleCount: 2,
+		angle: 120,
+		spread: 55,
+		origin: { x: 1 },
+		colors: colors,
+	});
+
+	// keep going until we are out of time
+	if (Date.now() < end) {
+		requestAnimationFrame(confettiAnimation);
+	}
+}

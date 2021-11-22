@@ -15,6 +15,69 @@ main {
   min-height: 100vh;
 }
 
+.modal-win {
+  position: absolute;
+  padding: 1rem 3rem;
+  right: 7px;
+  top: 7px;
+  background-color: #fff;
+  -webkit-animation: modal 0.5s ease-in-out forwards;
+          animation: modal 0.5s ease-in-out forwards;
+  opacity: 0;
+}
+
+.modal-win.out {
+  -webkit-animation: modal-out 0.5s ease-in-out forwards;
+          animation: modal-out 0.5s ease-in-out forwards;
+}
+
+@-webkit-keyframes modal {
+  from {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes modal {
+  from {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@-webkit-keyframes modal-out {
+  from {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+@keyframes modal-out {
+  from {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
 #background {
   position: absolute;
   width: 100%;
@@ -190,6 +253,8 @@ main {
       -ms-transform: rotate(calc(var(--rotate, 25) * 1deg));
           transform: rotate(calc(var(--rotate, 25) * 1deg));
   border-radius: 50%;
+  -webkit-box-shadow: inset 0 0 0 calc(var(--size) / 40) rgba(0, 0, 0, 0.06);
+          box-shadow: inset 0 0 0 calc(var(--size) / 40) rgba(0, 0, 0, 0.06);
 }
 .content__spinner * {
   grid-area: spinner;
