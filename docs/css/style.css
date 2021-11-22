@@ -11,7 +11,7 @@ body {
   overflow-x: hidden;
 }
 
-main {
+.scene {
   min-height: 100vh;
 }
 
@@ -21,9 +21,13 @@ main {
   right: 7px;
   top: 7px;
   background-color: #fff;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.modal-win.active {
   -webkit-animation: modal 0.5s ease-in-out forwards;
           animation: modal 0.5s ease-in-out forwards;
-  opacity: 0;
 }
 
 .modal-win.out {
@@ -291,6 +295,7 @@ main {
   border-radius: 50%;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 .content .cap:focus {
   outline-offset: 2px;
@@ -396,4 +401,43 @@ main {
   }
 }
 
-/* Spinning animation */
+@media screen and (max-width: 991px) {
+  #tree-1 {
+    left: 5%;
+    bottom: 30px;
+    -webkit-transform: scaleX(-1);
+        -ms-transform: scaleX(-1);
+            transform: scaleX(-1);
+  }
+
+  #tree-2 {
+    left: -30px;
+    bottom: 30px;
+  }
+
+  #tree-3 {
+    bottom: 5px;
+    left: 37%;
+    -webkit-transform: translate(-50%, 0%);
+        -ms-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+  }
+
+  #tree-4 {
+    bottom: 5px;
+    left: 63%;
+    -webkit-transform: translate(-50%, 0%);
+        -ms-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+  }
+
+  #tree-5 {
+    right: -60px;
+    bottom: 10px;
+  }
+
+  #tree-6 {
+    right: 5%;
+    bottom: 10px;
+  }
+}

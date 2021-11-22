@@ -112,9 +112,9 @@ const prizes = [
 	},
 ];
 
-const wheel = document.querySelector('.content__deal-wheel');
 const modalWin = document.querySelector('.modal-win');
 
+const wheel = document.querySelector('.content__deal-wheel');
 const spinner = wheel.querySelector('.content__spinner');
 const trigger = wheel.querySelector('.cap');
 const ticker = wheel.querySelector('.ticker');
@@ -125,6 +125,7 @@ const spinClass = 'is-spinning';
 const selectedClass = 'selected';
 const spinnerStyles = window.getComputedStyle(spinner);
 
+let angleOfResult = 90;
 let tickerAnim;
 let rotation = 0;
 let currentSlice = 0;
@@ -181,7 +182,7 @@ const rotate = () => {
 			additionalOffset +
 			'°)',
 	);
-	return fullSpins * 360 + offsetToPrice + additionalOffset + 90;
+	return fullSpins * 360 + offsetToPrice + additionalOffset + angleOfResult;
 };
 const setupWheel = () => {
 	createConicGradient();
@@ -210,17 +211,24 @@ const runTickerAnimation = () => {
 };
 
 const winNotification = (text) => {
-	let modal = document.createElement('div');
-	modal.setAttribute('class', 'modal-win');
-	modal.innerHTML += `You win ${text}`;
-	document.body.append(modal);
+	modalWin.classList.add('active');
+	modalWin.innerHTML += `You won ${text}`;
+	setTimeout(() => {
+		modalWin.classList.remove('active');
+		modalWin.classList.add('out');
+	}, 6000);
 };
 
 const selectPrize = () => {
-	const selected = Math.floor((rotation - 90) / prizeSlice);
+	const selected = Math.floor((rotation - angleOfResult) / prizeSlice);
 	prizeNodes[selected].classList.add(selectedClass);
 	winNotification(prizeNodes[selected].innerText);
 };
+
+modalWin.addEventListener('click', () => {
+	modalWin.classList.remove('active');
+	modalWin.classList.add('out');
+});
 
 trigger.addEventListener('click', () => {
 	trigger.disabled = true;
